@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Header></Header>
         {children}
-        <ZaloButton />
+        {/* <ZaloButton /> */}
         <Footer></Footer>
       </body>
     </html>

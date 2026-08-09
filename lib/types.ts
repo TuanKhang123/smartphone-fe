@@ -22,4 +22,6 @@ export type Product = {
   originalPrice?: number;
   isFeatured: boolean;
   inStock: boolean;
+  colors: string[];
+  storageOptions: string[];
 };

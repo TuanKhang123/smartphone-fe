@@ -14,10 +14,10 @@ export const Footer = () => {
           <p className="font-semibold text-white">Sản phẩm</p>
           <ul className="mt-2 space-y-1 text-sm text-slate-400">
             <li>
-              <Link href="/san-pham">Tất cả sản phẩm</Link>
+              <Link href="/products">Tất cả sản phẩm</Link>
             </li>
             <li>
-              <Link href="/thuong-hieu">Thương hiệu</Link>
+              <Link href="/brands">Thương hiệu</Link>
             </li>
           </ul>
         </div>

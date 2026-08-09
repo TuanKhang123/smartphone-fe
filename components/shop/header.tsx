@@ -9,7 +9,7 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 border-b bg-white">
+    <header className="sticky top-0 z-20 border-b bg-white">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="text-xl font-bold">
           SmartPhone Shop

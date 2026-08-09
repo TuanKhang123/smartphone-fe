@@ -40,6 +40,8 @@ export const products: Product[] = [
     originalPrice: 36990000,
     isFeatured: true,
     inStock: true,
+    colors: ["Đen", "Trắng", "Xanh"],
+    storageOptions: ["128GB", "256GB", "512GB"],
   },
   {
     id: "p2",
@@ -51,6 +53,8 @@ export const products: Product[] = [
     price: 29990000,
     isFeatured: true,
     inStock: true,
+    colors: ["Đen", "Bạc", "Xanh"],
+    storageOptions: ["256GB", "512GB", "1TB"],
   },
   {
     id: "p3",
@@ -62,6 +66,8 @@ export const products: Product[] = [
     price: 5990000,
     isFeatured: false,
     inStock: true,
+    colors: ["Đen", "Trắng", "Xanh"],
+    storageOptions: ["64GB", "128GB", "256GB"],
   },
   {
     id: "p4",
@@ -73,5 +79,7 @@ export const products: Product[] = [
     price: 5490000,
     isFeatured: true,
     inStock: false,
+    colors: ["Trắng"],
+    storageOptions: [],
   },
 ];

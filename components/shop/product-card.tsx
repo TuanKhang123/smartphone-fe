@@ -22,7 +22,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
           fill
           className="object-cover"
         />
-      </div>=
+      </div>
       <div className="p-3">
         <Link href={`/san-pham/${product.slug}`}>
           <p className="line-clamp-2 text-sm font-medium">{product.name}</p>
