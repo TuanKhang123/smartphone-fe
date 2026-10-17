@@ -1,6 +1,11 @@
+"use client";
+
 import { ProductCard } from "@/components/shop/product-card";
 import { Checkbox } from "@/components/ui/checkbox";
-import { brands, categories, products } from "@/lib/mock-data";
+import { brands, categories } from "@/lib/mock-data";
+import { getProducts } from "@/lib/api/products";
+import { useQuery } from "@tanstack/react-query";
+import { mapApiProductToProduct } from "@/lib/mappers/products";
 
 const FilterSidebar = () => {
   return (
@@ -41,6 +46,17 @@ const FilterSidebar = () => {
 };
 
 const ProductListingPage = () => {
+  const {
+    data: apiProducts = [],
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["products"],
+    queryFn: getProducts,
+  });
+
+  const products = apiProducts.map((pro) => mapApiProductToProduct(pro));
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
       <p className="text-sm text-slate-500">Trang chủ / Sản phẩm</p>
@@ -50,18 +66,30 @@ const ProductListingPage = () => {
         <FilterSidebar />
 
         <div className="flex-1">
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-slate-500">
-              Hiển thị {products.length}/{products.length} sản phẩm
+          {isLoading ? (
+            <p className="text-sm text-slate-500">Đang tải sản phẩm...</p>
+          ) : isError ? (
+            <p className="text-sm text-red-600">
+              Không thể tải sản phẩm. Vui lòng thử lại.
             </p>
-            {/* TODO (Milestone 7): thay bằng <select> sort thật khi làm URL state */}
-          </div>
+          ) : products.length === 0 ? (
+            <p className="text-sm text-slate-500">Chưa có sản phẩm nào.</p>
+          ) : (
+            <>
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-slate-500">
+                  Hiển thị {products.length}/{products.length} sản phẩm
+                </p>
+                {/* TODO (Milestone 7): thay bằng <select> sort thật khi làm URL state */}
+              </div>
 
-          <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+              <div className="mt-4 grid grid-cols-2 gap-4 md:grid-cols-3">
+                {products.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

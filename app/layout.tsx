@@ -3,6 +3,7 @@ import { Header } from "@/components/shop/header";
 import "./globals.css";
 import { Footer } from "@/components/shop/footer";
 import { Metadata } from "next";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "SmartPhone Shop",
@@ -17,10 +18,12 @@ export default function RootLayout({
   return (
     <html>
       <body className="min-h-full flex flex-col">
-        <Header></Header>
-        {children}
-        {/* <ZaloButton /> */}
-        <Footer></Footer>
+        <Providers>
+          <Header></Header>
+          {children}
+          {/* <ZaloButton /> */}
+          <Footer></Footer>
+        </Providers>
       </body>
     </html>
   );
